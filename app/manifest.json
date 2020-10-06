@@ -1,0 +1,25 @@
+{
+  "manifest_version": 2,
+
+  "name": "r34 Extension",
+  "description": "does stuff",
+  "version": "1.0",
+
+  "content_scripts": [
+    {
+      "matches": ["http://rule34.xxx/*", "https://rule34.xxx/*"],
+      "js": ["inject.js"],
+      "run_at": "document_end"
+    }
+  ],
+  "browser_action": {
+    "default_icon": "icon_128.png",
+    "default_popup": "index.html"
+  },
+  "permissions": [
+    "activeTab",
+    "http://hentai.bilbosjournal.com/"
+  ],
+  "web_accessible_resources": ["inject.js"]
+}
+
