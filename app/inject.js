@@ -10,7 +10,7 @@ fetch("http://hentai.bilbosjournal.com/allGroups", {headers: [
     .then(response => response.text())
     .then((response) => {
         console.log(response)
-        var input = document.getElementById("tags");
+        var input = document.getElementsByName("tags")[0];
         var search = input.value.replace(" ", "");
 
 
