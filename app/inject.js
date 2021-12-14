@@ -6,6 +6,7 @@ fetch("http://hentai.bilbosjournal.com/allGroups", {headers: [
         ['Content-Type', 'application/x-www-form-urlencoded'],
         ['Content-Type', 'multipart/form-data'],
         ['Content-Type', 'text/plain'],
+        ['charset', 'utf-8'],
     ]})
     .then(response => response.text())
     .then((response) => {
@@ -47,18 +48,25 @@ fetch("http://hentai.bilbosjournal.com/allGroups", {headers: [
             if(postList === null) return;
             var content = postList.getElementsByClassName("content")[0];
 
-                var divSpans = content.getElementsByTagName('div')[0];
-                const divArr = Array.from(divSpans.children);
-                divArr.forEach((item2) => {
+                var divSpans = content.getElementsByTagName('span');
+                arr = Array.from(divSpans)
+                arr.forEach((item2) => {
                    var a = item2.getElementsByTagName('a')[0];
+                   if (a === undefined) return;
                    var img = a.getElementsByTagName('img')[0];
+                   if (img === undefined) return;
 
                    var alt = img.getAttribute('alt');
+
 
                    alt.split(" ").forEach((item3) => {
                        if(item3 === "") return;
                        if(item3 === item){
-                           img.style = "border:10px outset #5A00FF";
+                           if(img.style.border !== ""){
+                                img.style = "border:10px outset #B300FF";
+                           } else {
+                                img.style = "border:10px outset #5A00FF";
+                           }
                        }
                    });
                 });
