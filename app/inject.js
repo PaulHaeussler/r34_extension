@@ -27,7 +27,7 @@ fetch("http://hentai.bilbosjournal.com/allGroups", {headers: [
 
             var tags = document.getElementById("tag-sidebar");
             const listArray = Array.from(tags.children);
-            listArray.forEach((item2) => {
+            listArray.forEach((item2) => {55
                 var tmp = item2.innerHTML.split("</a>")
                 if(tmp.length > 1) {
                     var tmp2 = tmp[0].split(">");
@@ -48,8 +48,8 @@ fetch("http://hentai.bilbosjournal.com/allGroups", {headers: [
             if(postList === null) return;
             var content = postList.getElementsByClassName("content")[0];
 
-                var divSpans = content.getElementsByTagName('span');
-                arr = Array.from(divSpans)
+                var divSpans = content.getElementsByClassName('image-list')[0];
+                arr = Array.from(divSpans.getElementsByClassName('thumb'))
                 arr.forEach((item2) => {
                    var a = item2.getElementsByTagName('a')[0];
                    if (a === undefined) return;
@@ -57,6 +57,9 @@ fetch("http://hentai.bilbosjournal.com/allGroups", {headers: [
                    if (img === undefined) return;
 
                    var alt = img.getAttribute('alt');
+                   if(alt === null) {
+                    alt = a.getElementsByTagName('img')[1];
+                   }
 
 
                    alt.split(" ").forEach((item3) => {
@@ -77,4 +80,3 @@ fetch("http://hentai.bilbosjournal.com/allGroups", {headers: [
             input.style.backgroundColor = "#5A00FF";
         }
     })
-    .catch(err => console.log(err))
