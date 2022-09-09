@@ -27,12 +27,12 @@ fetch("http://hentai.bilbosjournal.com/allGroups", {headers: [
 
             var tags = document.getElementById("tag-sidebar");
             const listArray = Array.from(tags.children);
-            listArray.forEach((item2) => {55
+            listArray.forEach((item2) => {
                 var tmp = item2.innerHTML.split("</a>")
                 if(tmp.length > 1) {
                     var tmp2 = tmp[0].split(">");
                     var tmp3 = tmp2[tmp2.length - 1];
-                    if (tmp3.replace(" ", "_") === item.replace(" ", "")){
+                    if (tmp3.replace(new RegExp(' ', "g"), "_") === item || tmp3 === item){
                         console.log(tmp3);
                         item2.className = "";
                         const arr = Array.from(item2.children);
