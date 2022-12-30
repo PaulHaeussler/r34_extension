@@ -57,7 +57,23 @@ fetch("http://hentai.bilbosjournal.com/allGroups", {headers: [
 
             if(postList === null){
             // favorites
-                console.log("parsing favs")
+
+                var content = document.getElementById("content").getElementsByClassName("thumb")
+                var arr = Array.from(content)
+                arr.forEach((ii) => {
+                    var img = ii.children[0].children[0]
+                    img.getAttribute('title').split(' ').forEach((tag) => {
+                        if(item === tag){
+                            console.log("Matched " + tag)
+                           if(img.style.border !== ""){
+                                img.style = "border:10px outset #B300FF";
+                           } else {
+                                img.style = "border:10px outset #5A00FF";
+                           }
+                        }
+                    })
+
+                })
             } else {
             // Normal search result page
                 var content = postList.getElementsByClassName("content")[0];
