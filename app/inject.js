@@ -57,10 +57,13 @@ fetch("http://hentai.bilbosjournal.com/allGroups", {headers: [
             if(window.location.href.includes("id=")){
                 //resize img: 20px padding from content + 200px sidebar + 12.8px margin = 232.8px + 25px für padding zum rand = screen size - 252px
                 var img = document.getElementById("image")
-                img.removeAttribute("height")
-                img.removeAttribute("width")
+
                 var width = Math.round(screen.width - 257)
-                img.style.cssText = "height: 100%; width: " + width.toString() + "px;"
+                if(img.getAttribute("width") > width || img.getAttribute("height") < 1600){
+                    img.removeAttribute("height")
+                    img.removeAttribute("width")
+                    img.style.cssText = "height: 100%; width: " + width.toString() + "px;"
+                }
             }
 
 
