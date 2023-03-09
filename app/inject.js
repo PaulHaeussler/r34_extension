@@ -54,7 +54,7 @@ fetch("http://hentai.bilbosjournal.com/allGroups", {headers: [
             }
 
             //identify img page
-            if(window.location.href.includes("id=")){
+            if(window.location.href.includes("id=") && postList !== null){
                 //resize img: 20px padding from content + 200px sidebar + 12.8px margin = 232.8px + 25px für padding zum rand = screen size - 252px
                 var img = document.getElementById("image")
 
@@ -82,7 +82,7 @@ fetch("http://hentai.bilbosjournal.com/allGroups", {headers: [
                            if(img.style.border !== ""){
                                 img.style = "border:10px outset #B300FF";
                            } else {
-                                img.style = "border:10px outset #5A00FF";
+                                img.style = "border:10px outset #5A00FF";9
                            }
                         }
                     })
