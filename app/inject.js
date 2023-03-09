@@ -82,7 +82,7 @@ fetch("http://hentai.bilbosjournal.com/allGroups", {headers: [
                            if(img.style.border !== ""){
                                 img.style = "border:10px outset #B300FF";
                            } else {
-                                img.style = "border:10px outset #5A00FF";9
+                                img.style = "border:10px outset #5A00FF";
                            }
                         }
                     })
