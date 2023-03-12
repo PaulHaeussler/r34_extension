@@ -54,7 +54,7 @@ fetch("http://hentai.bilbosjournal.com/allGroups", {headers: [
             }
 
             //identify img page
-            if(window.location.href.includes("id=") && !window.location.href.includes("page=favorites")){
+            if(window.location.href.includes("id=") && !window.location.href.includes("page=favorites") && window.location.href.includes("s=view")){
                 //resize img: 20px padding from content + 200px sidebar + 12.8px margin = 232.8px + 25px für padding zum rand = screen size - 252px
                 var img = document.getElementById("image")
 
